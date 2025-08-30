@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}Магазин{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav container">
+        <a class="nav__link" href="{{ url_for('home') }}">Главная</a>
+        <a class="nav__link" href="{{ url_for('cart') }}">Корзина</a>
+        <a class="nav__link" href="{{ url_for('about') }}">О нас</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© 2025 Демо‑магазин</p>
+      </div>
+    </footer>
+  </body>
+  </html>

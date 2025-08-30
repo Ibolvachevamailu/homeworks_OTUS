@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}О нас{% endblock %}
+
+{% block content %}
+  <h1>О нас</h1>
+  <p><a class="link" href="{{ url_for('home') }}">← Назад на главную</a></p>
+  <p><a class="link" href="{{ url_for('cart') }}">Перейти в корзину</a></p>
+{% endblock %}
