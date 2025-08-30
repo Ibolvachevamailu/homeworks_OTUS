@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+  <section class="product">
+    <h1 class="product__title">{{ product.name }}</h1>
+
+    <div class="product__media">
+      <figure class="image image--large" aria-label="{{ product.name }}">
+        <img src="{{ product.images[0].src }}" alt="{{ product.images[0].alt }}" />
+        <figcaption class="image__caption">{{ product.name }}</figcaption>
+      </figure>
+
+      <div class="thumbnails">
+        {% for img in product.images[1:] %}
+          <figure class="image image--thumb" aria-label="{{ product.name }}">
+            <img src="{{ img.src }}" alt="{{ img.alt }}" />
+            <figcaption class="image__caption">{{ product.name }}</figcaption>
+          </figure>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="product__pricing">
+      <span class="price-old">{{ product.old_price }}</span>
+      <span class="price-new">{{ product.new_price }}</span>
+    </div>
+
+    <div class="product__actions">
+      <a class="button" href="{{ url_for('cart') }}">Перейти в корзину</a>
+      <a class="link" href="{{ url_for('about') }}">О нас</a>
+    </div>
+  </section>
+{% endblock %}
